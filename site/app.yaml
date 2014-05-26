@@ -1,0 +1,25 @@
+application: yeradis
+version: 3
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /
+  script: yeradis.py
+
+- url: /index\.html
+  script: home.py
+
+- url: /js
+  static_dir: js
+  
+- url: /css
+  static_dir: css
+      
+- url: /img/(.*\.(gif|png|jpg))
+  static_files: img/\1
+  upload: img/(.*\.(gif|png|jpg))
+  
+- url: /.*
+  script: yeradis.py
